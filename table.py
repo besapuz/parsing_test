@@ -1,7 +1,7 @@
 class Table:
     __slots__ = ('tg', 'head', 'sh', 'abc', 'count', 'count2')
 
-    def __init__(self, tg, head, sh, abc='ABCDEFG', count=2, count2=0):
+    def __init__(self, tg, head, sh, abc: str = 'ABCDEFG', count: int = 2, count2: int = 0):
         self.head = head
         self.sh = sh
         self.abc = abc
@@ -9,14 +9,14 @@ class Table:
         self.count2 = count2
         self.tg = tg
 
-    def update_head(self):
+    def update_head(self) -> None:
         for h in self.head:
             text = h.text
             self.sh.sheet1.update(f'{self.abc[self.count2]}1', text)
             self.count2 += 1
         self.count2 = 0
 
-    def update_values(self):
+    def update_values(self) -> None:
         for quote in self.tg:
             text = quote.text
             if text.isdigit():

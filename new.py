@@ -22,6 +22,7 @@ soup = BeautifulSoup(response.text, 'lxml')
 quotes = soup.find_all('table')
 head = soup.find_all('th')
 tg = soup.find_all('td', class_='confluenceTd')
+
 table = Table(tg, head, sh)
 
 table.update_head()
