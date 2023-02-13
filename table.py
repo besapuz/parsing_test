@@ -1,27 +1,28 @@
-class Table:
-    __slots__ = ('tg', 'head', 'sh', 'abc', 'count', 'count2')
 
-    def __init__(self, tg, head, sh, abc: str = 'ABCDEFG', count: int = 2, count2: int = 0):
+class Table:
+    __slots__ = ('gs', 'head', 'go', 'abc', 'string', 'column')
+
+    def __init__(self, gs, head, go, abc: str = 'ABCDEFG', string: int = 2, column: int = 0):
         self.head = head
-        self.sh = sh
+        self.go = go
         self.abc = abc
-        self.count = count
-        self.count2 = count2
-        self.tg = tg
+        self.string = string
+        self.column = column
+        self.gs = gs
 
     def update_head(self) -> None:
         for h in self.head:
             text = h.text
-            self.sh.sheet1.update(f'{self.abc[self.count2]}1', text)
-            self.count2 += 1
-        self.count2 = 0
+            self.go.sheet1.update(f'{self.abc[self.column]}1', text)
+            self.column += 1
+        self.column = 0
 
     def update_values(self) -> None:
-        for quote in self.tg:
+        for quote in self.gs:
             text = quote.text
             if text.isdigit():
-                self.sh.sheet1.update(f'A{self.count}', text)
+                self.go.sheet1.update(f'A{self.string}', text)
             else:
-                self.sh.sheet1.update(f'B{self.count}', text)
-                self.count += 1
-        self.count = 2
+                self.go.sheet1.update(f'B{self.string}', text)
+                self.string += 1
+        self.string = 2
