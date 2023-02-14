@@ -19,7 +19,6 @@ sh = gc.open_by_url(DOC)
 
 response = requests.get(URL)
 soup = BeautifulSoup(response.text, 'lxml')
-quotes = soup.find_all('table')
 head = soup.find_all('th')
 tg = soup.find_all('td', class_='confluenceTd')
 
